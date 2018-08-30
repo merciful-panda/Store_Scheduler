@@ -12,5 +12,6 @@ namespace Store_Scheduler.Models
         Boolean status { get; set; }
 
         public events eventinstance { get; set; }
+        public stores store { get; set; }
     }
 }

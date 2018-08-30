@@ -13,7 +13,5 @@ namespace Store_Scheduler.Models
         public String phone { get; set; }
         public String email { get; set; }
         public DateTime birthDate { get; set; }
-
-        public employees employee { get; set; }
     }
 }

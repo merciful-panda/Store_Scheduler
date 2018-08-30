@@ -8,7 +8,6 @@ namespace Store_Scheduler.Models
     public class permissions
     {
         public int permissionID { get; set; }
-
         public String name { get; set; }
     }
 }

@@ -12,6 +12,7 @@ namespace Store_Scheduler.Models
         public int experience { get; set; }
 
         public skills skill { get; set; }
+        public employees employee { get; set; }
 
     }
 }

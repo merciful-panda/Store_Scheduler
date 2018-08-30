@@ -13,5 +13,7 @@ namespace Store_Scheduler.Models
         public string color2 { get; set; }
         public string color3 { get; set; }
         public string color4 { get; set; }
+
+        public stores store { get; set; }
     }
 }

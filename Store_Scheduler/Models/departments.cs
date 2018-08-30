@@ -13,7 +13,8 @@ namespace Store_Scheduler.Models
         public int priority { get; set; }
         public int  openspot { get; set; }
         public int status { get; set; }
+        public String description { get; set; }
 
-        public List<department_positions> positionInstance { get; set; }
+        public department_positions positionInstance { get; set; }
     }
 }
