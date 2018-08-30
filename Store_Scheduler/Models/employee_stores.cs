@@ -8,7 +8,9 @@ namespace Store_Scheduler.Models
     public class employee_stores
     {
         public int employeeID { get; set; }
-        public int  storeID { get; set; }
+        public int storeID { get; set; }
 
+        public employees employee { get; set; }
+        public stores store { get; set; }
     }
 }

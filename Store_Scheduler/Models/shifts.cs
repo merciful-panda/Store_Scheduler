@@ -14,5 +14,8 @@ namespace Store_Scheduler.Models
         public DateTime startTime { get; set; }
         public DateTime endTime { get; set; }
 
+        public department_positions position { get; set; }
+        public employees employee { get; set; }
+
     }
 }
