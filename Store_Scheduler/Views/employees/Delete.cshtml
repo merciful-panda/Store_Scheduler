@@ -1,0 +1,57 @@
+﻿@model Store_Scheduler.Models.employees
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>employees</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.payType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.payType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.hourlyRate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.hourlyRate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.overtimeRate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.overtimeRate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.role)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.role.roleID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.user)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.user.userID)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="employeeID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

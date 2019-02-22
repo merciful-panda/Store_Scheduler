@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Store_Scheduler.Models.employees>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.payType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.hourlyRate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.overtimeRate)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.user)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.payType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hourlyRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.overtimeRate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.role.roleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.userID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.employeeID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.employeeID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.employeeID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
