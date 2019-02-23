@@ -8,14 +8,15 @@ namespace Store_Scheduler.Models
 {
     public class sales
     {
+        [Key]
         public int salesID { get; set; }
-        public int storeID { get; set; }
-        public double laberCost { get; set; }
+        public double laborCost { get; set; }
         public double revenue  { get; set; }
 
         [DataType(DataType.Date)]
         public DateTime date { get; set; }
 
-        public stores store { get; set; }
+        public int storeID { get; set; }
+        public virtual stores store { get; set; }
     }
 }
