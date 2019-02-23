@@ -8,7 +8,7 @@ namespace Store_Scheduler.Models
 {
     public class users
     {
-        [Key]
+        /*[Key]
         public int userID { get; set; }
         public String firstName { get; set; }
         public String lastName { get; set; }
@@ -16,6 +16,6 @@ namespace Store_Scheduler.Models
         public String email { get; set; }
         public DateTime birthDate { get; set; }
 
-        public virtual ICollection<employees> employee { get; set; }
+        public virtual ICollection<employees> employee { get; set; }*/
     }
 }

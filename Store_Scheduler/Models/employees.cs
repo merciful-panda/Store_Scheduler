@@ -17,8 +17,9 @@ namespace Store_Scheduler.Models
         public double? hourlyRate { get; set; }
         public double? overtimeRate { get; set; }
 
-        public int userID { get; set; }
-        public users user { get; set; }
+        [ForeignKey("ApplicationUser")]
+        public string ApplicationUserID { get; set; }
+        public virtual ApplicationUser ApplicationUser { get; set; }
 
         public int roleID { get; set; }
         public virtual roles role { get; set; }

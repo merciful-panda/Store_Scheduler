@@ -35,16 +35,16 @@
             @Html.DisplayFor(model => model.overtimeRate)
         </dd>
         <dt>
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ApplicationUser.Id)
+        </dd>
+        <dt>
             @Html.DisplayNameFor(model => model.role)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.role.roleID)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.user)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.user.userID)
         </dd>
     </dl>
 </div>

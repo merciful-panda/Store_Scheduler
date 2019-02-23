@@ -11,9 +11,10 @@ using System;
 namespace Store_Scheduler.Data.Migrations
 {
     [DbContext(typeof(StoreSchedulerContext))]
-    partial class StoreSchedulerContextModelSnapshot : ModelSnapshot
+    [Migration("20190223032715_FixingIdentityAgain1")]
+    partial class FixingIdentityAgain1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

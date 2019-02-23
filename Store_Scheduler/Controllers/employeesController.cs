@@ -22,7 +22,7 @@ namespace Store_Scheduler.Controllers
         // GET: employees
         public async Task<IActionResult> Index()
         {
-            var storeSchedulerContext = _context.employees.Include(e => e.role).Include(e => e.user);
+            var storeSchedulerContext = _context.employees.Include(e => e.ApplicationUser).Include(e => e.role);
             return View(await storeSchedulerContext.ToListAsync());
         }
 
@@ -35,8 +35,8 @@ namespace Store_Scheduler.Controllers
             }
 
             var employees = await _context.employees
+                .Include(e => e.ApplicationUser)
                 .Include(e => e.role)
-                .Include(e => e.user)
                 .SingleOrDefaultAsync(m => m.employeeID == id);
             if (employees == null)
             {
@@ -49,8 +49,8 @@ namespace Store_Scheduler.Controllers
         // GET: employees/Create
         public IActionResult Create()
         {
+            ViewData["ApplicationUserID"] = new SelectList(_context.Users, "Id", "Id");
             ViewData["roleID"] = new SelectList(_context.roles, "roleID", "roleID");
-            ViewData["userID"] = new SelectList(_context.users, "userID", "userID");
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace Store_Scheduler.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("employeeID,status,payType,hourlyRate,overtimeRate,userID,roleID")] employees employees)
+        public async Task<IActionResult> Create([Bind("employeeID,status,payType,hourlyRate,overtimeRate,ApplicationUserID,roleID")] employees employees)
         {
             if (ModelState.IsValid)
             {
@@ -67,8 +67,8 @@ namespace Store_Scheduler.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserID"] = new SelectList(_context.Users, "Id", "Id", employees.ApplicationUserID);
             ViewData["roleID"] = new SelectList(_context.roles, "roleID", "roleID", employees.roleID);
-            ViewData["userID"] = new SelectList(_context.users, "userID", "userID", employees.userID);
             return View(employees);
         }
 
@@ -85,8 +85,8 @@ namespace Store_Scheduler.Controllers
             {
                 return NotFound();
             }
+            ViewData["ApplicationUserID"] = new SelectList(_context.Users, "Id", "Id", employees.ApplicationUserID);
             ViewData["roleID"] = new SelectList(_context.roles, "roleID", "roleID", employees.roleID);
-            ViewData["userID"] = new SelectList(_context.users, "userID", "userID", employees.userID);
             return View(employees);
         }
 
@@ -95,7 +95,7 @@ namespace Store_Scheduler.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("employeeID,status,payType,hourlyRate,overtimeRate,userID,roleID")] employees employees)
+        public async Task<IActionResult> Edit(int id, [Bind("employeeID,status,payType,hourlyRate,overtimeRate,ApplicationUserID,roleID")] employees employees)
         {
             if (id != employees.employeeID)
             {
@@ -122,8 +122,8 @@ namespace Store_Scheduler.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ApplicationUserID"] = new SelectList(_context.Users, "Id", "Id", employees.ApplicationUserID);
             ViewData["roleID"] = new SelectList(_context.roles, "roleID", "roleID", employees.roleID);
-            ViewData["userID"] = new SelectList(_context.users, "userID", "userID", employees.userID);
             return View(employees);
         }
 
@@ -136,8 +136,8 @@ namespace Store_Scheduler.Controllers
             }
 
             var employees = await _context.employees
+                .Include(e => e.ApplicationUser)
                 .Include(e => e.role)
-                .Include(e => e.user)
                 .SingleOrDefaultAsync(m => m.employeeID == id);
             if (employees == null)
             {

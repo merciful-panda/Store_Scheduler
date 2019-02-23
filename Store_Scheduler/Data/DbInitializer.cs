@@ -11,8 +11,8 @@ namespace Store_Scheduler.Data
         {
             context.Database.EnsureCreated();
             // if already records then skip
-            if (context.users.Any())
-            { return; }
+           // if (context.stores.Any())
+            //{ return; }
 
            /*context.stores.Add(new Models.stores()
             {

@@ -11,9 +11,10 @@ using System;
 namespace Store_Scheduler.Data.Migrations
 {
     [DbContext(typeof(StoreSchedulerContext))]
-    partial class StoreSchedulerContextModelSnapshot : ModelSnapshot
+    [Migration("20190223032236_FixingIdentityAgain")]
+    partial class FixingIdentityAgain
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -362,7 +363,7 @@ namespace Store_Scheduler.Data.Migrations
 
                     b.HasKey("skillID");
 
-                    b.ToTable("skillss");
+                    b.ToTable("skills");
                 });
 
             modelBuilder.Entity("Store_Scheduler.Models.stores", b =>
